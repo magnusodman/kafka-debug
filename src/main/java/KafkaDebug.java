@@ -23,7 +23,7 @@ public class KafkaDebug {
         props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
-        Producer<String, String> producer = new KafkaProducer<>(props);
+        Producer<String, String> producer = new KafkaProducer<String,String>(props);
         for(int i = 0; i < 100; i++)
             producer.send(new ProducerRecord<String, String>("bridgetopic.t", Integer.toString(i), Integer.toString(i)));
 
